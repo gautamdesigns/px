@@ -125,14 +125,32 @@
     <script>
         window.onload = () => {
 
-            document.getElementById("width").innerText = screen.width + " px";
-            document.getElementById("height").innerText = screen.height + " px";
-            document.getElementById("resolution").innerText = screen.width + " X " + screen.height + " px";
-            document.getElementById("aheight").innerText = screen.availHeight + " px";
-            document.getElementById("awidth").innerText = screen.availWidth + " px";
-            document.getElementById("color").innerText = screen.colorDepth + " px";
-            document.getElementById("pixal").innerText = screen.pixelDepth + " px";
+const realWidth = screen.width * window.devicePixelRatio;
 
+const realHeight = screen.height * window.devicePixelRatio;
+
+document.getElementById("width").innerText =
+realWidth + " px";
+
+document.getElementById("height").innerText =
+realHeight + " px";
+
+document.getElementById("resolution").innerText =
+realWidth + " X " + realHeight + " px";
+
+document.getElementById("aheight").innerText =
+screen.availHeight * window.devicePixelRatio + " px";
+
+document.getElementById("awidth").innerText =
+screen.availWidth * window.devicePixelRatio + " px";
+
+document.getElementById("color").innerText =
+screen.colorDepth + " bit";
+
+document.getElementById("pixel").innerText =
+screen.pixelDepth + " bit";
+
+}
         }
     </script>
 </body>
