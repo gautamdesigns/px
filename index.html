@@ -2,157 +2,162 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>What is my Screen Resolution</title>
-    <style>
-        
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        :root {
-            --fborder: #08f;
-            --sborder: green;
-        }
+  <title>What is my Screen Resolution</title>
 
-        body {
-            background-color: black;
-            text-align: center;
-            color: white;
+  <style>
+    :root {
+      --fborder: #08f;
+    }
 
-            text-shadow:
-                0 0 1vw red,
-                0 0 3vw red,
-                0 0 10vw red;
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        main {
-            border: 4px white solid;
-            border-radius: 10px;
-            padding: 20px;
-            background: black;
-            margin: 50px auto auto auto;
-            animation: animatef 3s infinite alternate linear;
-            box-shadow:
-                0 0 .25rem #fff,
-                inset 0 0 .25rem var(--fborder),
-                0 0 1rem var(--fborder),
-                inset 0 0 1rem var(--fborder),
-                0 0 2rem var(--fborder),
-                inset 0 0 2rem var(--fborder);
-            font-weight: 100;
-            max-width: 600px;
-        }
+    body {
+      background-color: black;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-shadow:
+        0 0 0.2vw red,
+        0 0 0.5vw red,
+        0 0 2vw red;
+    }
 
-        .container {
-            border: 4px white solid;
-            border-radius: 10px;
-            background-color: black;
-            text-align: center;
-            padding: 10px;
-            animation: animates 2s infinite linear;
-            box-shadow:
-                0 0 .25rem #fff,
-                inset 0 0 .25rem #08f,
-                0 0 1rem #08f,
-                inset 0 0 1rem #08f,
-                0 0 2rem #08f,
-                inset 0 0 2rem #08f;
-        }
+    main {
+      width: 90%;
+      max-width: 40rem;
+      border: 0.25rem solid white;
+      border-radius: 1rem;
+      padding: 2rem;
+      background-color: black;
+      animation: animatef 3s infinite alternate linear;
+      box-shadow:
+        0 0 0.25rem #fff,
+        inset 0 0 0.25rem var(--fborder),
+        0 0 1rem var(--fborder),
+        inset 0 0 1rem var(--fborder),
+        0 0 2rem var(--fborder),
+        inset 0 0 2rem var(--fborder);
+    }
 
-        span#resolution {
-            font-size: 25px;
-            text-shadow:
-                0 0 1vw #08f,
-                0 0 3vw #08f,
-                0 0 10vw #08f;
-            animation: blink 5s infinite;
-        }
+    .container {
+      border: 0.25rem solid white;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin-bottom: 2rem;
+      box-shadow:
+        0 0 0.25rem #fff,
+        inset 0 0 0.25rem #08f,
+        0 0 1rem #08f,
+        inset 0 0 1rem #08f,
+        0 0 2rem #08f,
+        inset 0 0 2rem #08f;
+    }
 
-        span {
-            text-shadow:
-                0 0 1vw green,
-                0 0 3vw green,
-                0 0 10vw green;
+    h2 {
+      font-size: 2rem;
+      line-height: 1.5;
+    }
 
-        }
+    h3 {
+      margin: 1rem 0;
+      font-size: 1.3rem;
+      font-weight: normal;
+    }
 
-        @keyframes animatef {
-            0% {
-                --fborder: #f00;
-            }
+    span#resolution {
+      font-size: 2rem;
+      text-shadow:
+        0 0 0.2vw #08f,
+        0 0 0.5vw #08f,
+        0 0 2vw #08f;
+    }
 
-            33% {
-                --fborder: yellow;
-            }
+    span {
+      text-shadow:
+        0 0 0.2vw green,
+        0 0 0.5vw green,
+        0 0 2vw green;
+    }
 
-            100% {
-                --fborder: #0f0;
-            }
-        }
+    @keyframes animatef {
+      0% {
+        --fborder: #f00;
+      }
 
-        @keyframes blink {
+      50% {
+        --fborder: yellow;
+      }
 
-            0%,
-            19%,
-            21%,
-            23%,
-            25%,
-            54%,
-            56%,
-            100% {
-                visibility: show;
-            }
-        }
-    </style>
+      100% {
+        --fborder: #0f0;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <main>
-        <div class="container">
-            <h2>Your Screen Resolution is <br />
-                <span id="resolution"></span>
-            </h2>
-        </div>
-        <h3>Screen Width : <span id="width"></span></h3>
-        <h3>Screen Height : <span id="height"></span></h3>
-        <h3>Available Screen Width : <span id="awidth"></span></h3>
-        <h3>Available Screen Height : <span id="aheight"></span></h3>
-        <h3>Screen Color Depth : <span id="color"></span></h3>
-        <h3>Screen Pixal Depth : <span id="pixal"></span></h3>
-    </main>
+  <main>
 
-    <script>
-        window.onload = () => {
+    <div class="container">
 
-const realWidth = screen.width * window.devicePixelRatio;
+      <h2>
+        Your Screen Resolution is
+        <br />
+        <span id="resolution"></span>
+      </h2>
 
-const realHeight = screen.height * window.devicePixelRatio;
+    </div>
 
-document.getElementById("width").innerText =
-realWidth + " px";
+    <h3>Screen Width : <span id="width"></span></h3>
 
-document.getElementById("height").innerText =
-realHeight + " px";
+    <h3>Screen Height : <span id="height"></span></h3>
 
-document.getElementById("resolution").innerText =
-realWidth + " X " + realHeight + " px";
+    <h3>Available Screen Width : <span id="awidth"></span></h3>
 
-document.getElementById("aheight").innerText =
-screen.availHeight * window.devicePixelRatio + " px";
+    <h3>Available Screen Height : <span id="aheight"></span></h3>
 
-document.getElementById("awidth").innerText =
-screen.availWidth * window.devicePixelRatio + " px";
+    <h3>Screen Color Depth : <span id="color"></span></h3>
 
-document.getElementById("color").innerText =
-screen.colorDepth + " bit";
+    <h3>Screen Pixel Depth : <span id="pixel"></span></h3>
 
-document.getElementById("pixel").innerText =
-screen.pixelDepth + " bit";
+  </main>
 
-}
-        }
-    </script>
+  <script>
+    window.onload = () => {
+      const ratio = window.devicePixelRatio;
+      const realWidth = Math.round(screen.width * ratio);
+      const realHeight = Math.round(screen.height * ratio);
+      const availWidth = Math.round(screen.availWidth * ratio);
+      const availHeight = Math.round(screen.availHeight * ratio);
+      document.getElementById("width").innerText =
+        realWidth + " px";
+      document.getElementById("height").innerText =
+        realHeight + " px";
+      document.getElementById("resolution").innerText =
+        realWidth + " X " + realHeight + " px";
+      document.getElementById("awidth").innerText =
+        availWidth + " px";
+      document.getElementById("aheight").innerText =
+        availHeight + " px";
+      document.getElementById("color").innerText =
+        screen.colorDepth + " bit";
+      document.getElementById("pixel").innerText =
+        screen.pixelDepth + " bit";
+    };
+  </script>
+
 </body>
 
 </html>
